@@ -5,7 +5,7 @@ from scipy.sparse.csgraph import shortest_path
 from sklearn.datasets import make_swiss_roll
 from sklearn.manifold import Isomap
 
-X, color = make_swiss_roll(n_samples=1000, random_state=2021)
+X, color = make_swiss_roll(n_samples=1000, random_state=2022)
 
 euclidean_distances_3d = np.zeros((1000, 1000))
 for i in range(len(X)):
@@ -44,6 +44,7 @@ ax.scatter(X[:, 0], X[:, 1], X[:, 2], c=color, cmap=plt.cm.rainbow)
 ax.view_init(10, -80)
 plt.title('Swiss Roll in 3D')
 plt.savefig('SwissRoll.png')
+plt.close()
 
 iso = Isomap(n_components=2)
 
@@ -52,6 +53,7 @@ plt.figure(figsize=(10, 6))
 plt.scatter(X_iso[:, 0], X_iso[:, 1], c=color, cmap=plt.cm.rainbow)
 plt.title('Standart Isomap')
 plt.savefig('StandartIsoMap.png')
+plt.close()
 
 plt.figure(figsize=(10, 6))
 plt.scatter(X_2d[:, 0], X_2d[:, 1], c=color, cmap=plt.cm.rainbow)
